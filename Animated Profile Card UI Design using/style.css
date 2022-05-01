@@ -1,0 +1,146 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#46b18a,#485394);
+}
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 180px;
+    /* height: 450px; */
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    transition: 0.5s;
+}
+
+.card:hover{
+    height: 400px;
+}
+
+.imgBx{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: -50px;
+    box-shadow: 0 10px 20px rgba(44, 48, 70, 0.5);
+
+    /* 用 overflow: hidden; 讓.imgBx img 可以慈切成 .imgBx 的設定 */
+    overflow: hidden;
+
+    transition: 0.5s;
+}
+
+.card:hover .imgBx{
+    width: 200px;
+    height: 200px;
+}
+
+.imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover 圖片正常大小不被壓縮 */
+    object-fit: cover;
+}
+
+.card .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* flex-start 最上面 flex-end 最底下 */
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+.card .content .details{
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s;
+
+    /* 最後將完成的內容往下推至顯示位置，在.card .content設定 overflow: hidden;讓畫面顯示縮起來的部分 */
+    transform: translateY(150px)
+}
+
+.card:hover .content .details{
+    transform: translateY(0px)
+}
+
+.card .content .details h2{
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.2em;
+}
+
+.card .content .details h2 span{
+    font-size: 0.75em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.card .content .details .data{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.card .content .details .data h3{
+    font-size: 1em;
+    color: #555;
+    line-height: 1.2em;
+    font-weight: 600;
+}
+
+.card .content .details .data h3 span{
+    font-size: 0.85em;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.card .content .details .actionBtn{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20px; */
+    /* background: lightcoral; */
+}
+
+.card .content .details .actionBtn button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    background: #ff8b1e;
+    color: white;
+    cursor: pointer;
+}
+
+.card .content .details .actionBtn button:nth-child(2){
+    border: 1px solid #999;
+    color: #999;
+    background: white;
+}
