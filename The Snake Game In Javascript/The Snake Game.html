@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+
+    <!-- 
+        defer - deferred(延遲)的縮寫，非同步的把請求射出去，然後再確保DOM全部都解析完畢之後執行
+        type="module" -當 type 設定為 "module" 時，<script> 也會是 defer 的，因此指定的 .js 會以非同步方式下載，並在 DOM 樹生成與其他非 defer 的 .js 執行完後才（依序）執行
+            https://openhome.cc/Gossip/ECMAScript/ScriptModule.html
+    -->
+    <script src="./The Snake Game.js" defer type="module"></script>
+
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: black;
+        }
+
+        #game-board{
+            background-color: #ccc;
+            /* vmin / vmax：有一個元素，需要讓它始終在屏幕上可見 & 等比例縮放，視口高度和寬度兩者的最小值或者最大值 */
+            width: 100vmin;
+            height: 100vmin;
+
+            /*  display: grid; 格線佈局，可以給各格線指定一個固定的軌道大小，這樣就能把格線設為指定的像素，與彈性盒子之類的 CSS 結合時，有助於 CSS 建立尚未有的排版 */
+            display: grid;
+            /* 
+            grid-template 設定 CSS 定義網格線間，距軌道大小功能
+            fr 等分的概念
+            repeat() 可重複某值，傳入兩個參數，次數與值，repeat(2, 1fr) 
+            rows 行
+            columns 列
+            */
+            grid-template-rows: repeat(21,1fr);  
+            grid-template-columns: repeat(21,1fr);
+        }
+
+        .snake{
+            /*  hsl 及  hsla 等兩種跟顏色有關的屬性。其中 H 為 hue(色相)、S 為 saturation(飽合度)、L 為 lightness(亮度) */
+            background-color: hsl(240, 80%, 50%);
+            border: 0.25vmin solid black;
+        }
+
+        .food{
+            background-color: hsl(45, 99%, 58%);
+            border: 0.25vmin solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-board"></div>
+</body>
+</html>
